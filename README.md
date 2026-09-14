@@ -17,3 +17,7 @@ Sahil Chhotulal Chaudhari
 Capstone I/II is a two-semester course sequence where our team designs, builds, and delivers a working software prototype for a real client, following an engineering lifecycle process.
 
 More details (problem statement, tech stack, setup instructions) coming soon.
+
+## GitHub Practice
+
+This repository is also being used to practice Git branches, commits, and collaboration.
