@@ -21,3 +21,4 @@ More details (problem statement, tech stack, setup instructions) coming soon.
 ## GitHub Practice
 
 This repository is also being used to practice Git branches, commits, and collaboration.
+More project documentation will be added as development progresses.
