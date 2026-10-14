@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Nova - Analyst Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Team Nova Analyst Dashboard</h1>
+    <p>Security alerts and incidents (mock data)</p>
+  </header>
+
+  <main>
+    <section class="stats" id="stats"></section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Alerts</h2>
+        <select id="severity-filter">
+          <option value="all">All severities</option>
+          <option value="critical">Critical</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Time</th><th>Source</th><th>Severity</th><th>Reason</th><th>Review</th></tr>
+        </thead>
+        <tbody id="alerts-body"></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>Incidents</h2>
+      <div id="incidents-list"></div>
+    </section>
+  </main>
+
+  <script src="mock-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
