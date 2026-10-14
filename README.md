@@ -12,10 +12,10 @@ alerts as false positive or real, which helps improve detection over time.
 ## Team
 | Member | Sprint 1 Area |
 |---|---|
+| Gauri Kaushik | Ingestion + Database |
+| Brandon Vojtkofsky | Detection Engine |
 | Kris Sathwara | Investigation Agent |
 | Sahil Chaudhari | Dashboard (frontend + API) |
-| Brandon Vojtkofsky | TBD (Detection Engine / Ingestion + DB) |
-| Gauri Kaushik | TBD |
 
 ## Planned Tech Stack
 - Backend: Python 3
