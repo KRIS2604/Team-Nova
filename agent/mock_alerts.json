@@ -1,0 +1,18 @@
+[
+  {"id": "alert_001", "log": {"source": "auth", "timestamp": "2026-10-14T14:05:40Z"},
+   "severity": "high", "reason": "5 failed logins in 2 minutes for user jsmith"},
+  {"id": "alert_002", "log": {"source": "auth", "timestamp": "2026-10-14T14:07:05Z"},
+   "severity": "critical", "reason": "Successful login for jsmith right after failed attempts"},
+  {"id": "alert_003", "log": {"source": "network", "timestamp": "2026-10-14T11:22:05Z"},
+   "severity": "medium", "reason": "Port scan detected from 10.0.0.87 (7 ports in 4 seconds)"},
+  {"id": "alert_004", "log": {"source": "system", "timestamp": "2026-10-14T11:24:10Z"},
+   "severity": "high", "reason": "Finance file read by svc_backup from 10.0.0.87"},
+  {"id": "alert_005", "log": {"source": "network", "timestamp": "2026-10-14T11:25:33Z"},
+   "severity": "high", "reason": "Large outbound transfer (850 MB) to unknown IP 203.0.113.50"},
+  {"id": "alert_006", "log": {"source": "system", "timestamp": "2026-10-13T22:41:50Z"},
+   "severity": "low", "reason": "Unusual process started on web-server-02"},
+  {"id": "alert_007", "log": {"source": "application", "timestamp": "2026-10-12T09:15:00Z"},
+   "severity": "medium", "reason": "Repeated 403 errors on admin page for user tnguyen"},
+  {"id": "alert_008", "log": {"source": "auth", "timestamp": "2026-10-14T15:20:00Z"},
+   "severity": "low", "reason": "Failed login for unknown user admin from 172.16.5.9"}
+]
