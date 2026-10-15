@@ -1,0 +1,14 @@
+# Simulated auth server logs (syslog style). Lines starting with # are skipped.
+2026-10-14T08:02:11Z auth-server-01 sshd[1001]: Accepted password for asmith from 10.0.0.12 port 50122 ssh2
+2026-10-14T08:15:40Z auth-server-01 sshd[1002]: Accepted password for mlee from 10.0.0.14 port 50300 ssh2
+2026-10-14T09:30:02Z auth-server-01 sudo: asmith : TTY=pts/0 ; PWD=/home/asmith ; USER=root ; COMMAND=/usr/bin/apt update
+2026-10-14T12:01:55Z auth-server-01 sshd[1002]: pam_unix(sshd:session): session closed for user mlee
+2026-10-14T14:03:12Z auth-server-01 sshd[1023]: Failed password for jsmith from 192.168.1.45 port 52211 ssh2
+2026-10-14T14:03:41Z auth-server-01 sshd[1023]: Failed password for jsmith from 192.168.1.45 port 52214 ssh2
+2026-10-14T14:04:20Z auth-server-01 sshd[1024]: Failed password for jsmith from 192.168.1.45 port 52230 ssh2
+2026-10-14T14:04:58Z auth-server-01 sshd[1024]: Failed password for jsmith from 192.168.1.45 port 52241 ssh2
+2026-10-14T14:05:40Z auth-server-01 sshd[1025]: Failed password for jsmith from 192.168.1.45 port 52250 ssh2
+2026-10-14T14:07:05Z auth-server-01 sshd[1026]: Accepted password for jsmith from 192.168.1.45 port 52261 ssh2
+2026-10-14T15:20:00Z auth-server-01 sshd[1030]: Failed password for invalid user admin from 172.16.5.9 port 40011 ssh2
+yesterday auth-server-01 sshd[1031]: Failed password for bob from 10.0.0.5 port 40100 ssh2
+2026-10-14T16:45:13Z auth-server-01 sshd[1032]: Failed password for bob from 999.10.0.5 port 40101 ssh2

@@ -1,0 +1,7 @@
+{"timestamp": "2026-10-13T20:00:00Z", "host": "web-server-02", "event": "service_restart", "user": "root", "service": "nginx"}
+{"timestamp": "2026-10-13T22:41:50Z", "host": "web-server-02", "event": "process_start", "user": "root", "process": "/opt/scripts/backup.sh"}
+{"timestamp": "2026-10-14T06:00:00Z", "host": "file-server-01", "event": "disk_warning", "user": null, "detail": "disk /data 91% full"}
+{"timestamp": "2026-10-14T11:24:10Z", "host": "file-server-01", "event": "file_read", "user": "svc_backup", "ip": "10.0.0.87", "path": "/data/finance/q3.xlsx"}
+{"timestamp": "2026-10-14T13:00:00Z", "host": "auth-server-01", "event": "config_change", "user": "asmith", "file": "/etc/ssh/sshd_config"}
+{"timestamp": "2026-10-14T13:05:00Z", "host": "web-server-02", "event": "process_start" "user": "www-data"}
+{"host": "web-server-02", "event": "process_start", "user": "www-data", "process": "/usr/bin/python3"}
