@@ -46,6 +46,7 @@ Event types in Sprint 1:
 | created_at | string | UTC |
 | alert_ids | list of strings | worked out from `alerts.incident_id` |
 | report | object | `{summary, affected_systems: [..], recommendations}` |
+| timeline | list (optional) | **new in Sprint 2 (R6)**. Only in the agent's `--export` file. Each step: `start`, `end` (UTC), `count` (repeats folded), `description`, `source`, `host`, `alert` (`null` or `{id, severity, reason}`). Oldest first. Not stored in the DB. |
 
 ## Changes from the ER diagram
 - Added `host` to LogEntry, so the agent can fill in `affected_systems`.

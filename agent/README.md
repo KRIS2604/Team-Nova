@@ -18,6 +18,10 @@ shared format (see `shared/data_format.md`) so the dashboard can show them.
 4. **Write the report.** Uses an LLM if `OPENAI_API_KEY` is set. With no key, or
    if the LLM call fails, it uses built-in templates, so it always works.
 5. **Save.** Adds the incident to the `incidents` table and links its alerts.
+6. **Timeline (R6).** For any incident, shows what happened in time order:
+   every related log line, with the alert lines marked and repeats folded
+   (e.g. "Failed login for jsmith (x4)"). Built from the database when asked,
+   so nothing extra is stored.
 
 ## Files
 | File | What it does |
@@ -26,15 +30,17 @@ shared format (see `shared/data_format.md`) so the dashboard can show them.
 | `alerts.py` | Load mock alerts, get alerts not yet in an incident |
 | `correlate.py` | Group related alerts, gather log context |
 | `report.py` | Write the report (LLM or template) |
+| `timeline.py` | Build the incident timeline (R6) |
 | `investigate.py` | Command line tool that runs all the steps |
-| `tests/` | 12 unit tests (TC-A01 to TC-A12) |
+| `tests/` | 19 unit tests (TC-A01 to TC-A19) |
 
 ## How to run (from the repo root, Python 3.9+, no extra packages)
 ```
 python -m ingestion.ingest ingestion/sample_logs      # 1. load the logs
 python -m agent.investigate --mock                     # 2. add mock alerts + investigate
 python -m agent.investigate --show                     # see all incidents
-python -m agent.investigate --export incidents.json    # JSON for the dashboard
+python -m agent.investigate --timeline inc_004         # timeline for one incident
+python -m agent.investigate --export incidents.json    # JSON for the dashboard (with timelines)
 python -m unittest discover -s agent/tests -t . -v     # run the tests
 ```
 Running `--mock` again does not add duplicates. Don't commit `incidents.json`.
@@ -51,3 +57,11 @@ in your terminal, never in the code. Without it, template reports are used.
 | Repeated access attempts on admin page by tnguyen | medium | alert_007 |
 | Unusual process on web-server-02 | low | alert_006 |
 | Failed login attempts for admin | low | alert_008 |
+
+## Sample timeline (`--timeline inc_004`)
+```
+inc_004 [critical] Possible brute-force login on jsmith
+  14:03-14:04 Failed login for jsmith from 192.168.1.45 (x4)
+  14:05       Failed login for jsmith from 192.168.1.45  <-- ALERT alert_001 [high]
+  14:07       Successful login for jsmith from 192.168.1.45  <-- ALERT alert_002 [critical]
+```
