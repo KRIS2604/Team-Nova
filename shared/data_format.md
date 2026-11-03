@@ -34,7 +34,7 @@ Event types in Sprint 1:
 | timestamp | string | UTC |
 | severity | string | `low`, `medium`, `high`, `critical` |
 | reason | string | plain English, e.g. "5 failed logins in 2 minutes for user jsmith" |
-| is_false_positive | null / true / false | null = not reviewed yet (analyst feedback, R6) |
+| is_false_positive | null / true / false | null = not reviewed yet (analyst feedback, R8) |
 
 ## Incident (made by Investigation Agent)
 | Field | Type | Notes |
