@@ -13,8 +13,9 @@ database schema for LogEntry, Alert and Incident.
 | `db.py` | Connect to the DB, save entries, query entries (other modules use this) |
 | `parsers.py` | One parser per log source |
 | `ingest.py` | Command line tool to load, show and export logs |
+| `generate_logs.py` | Makes a big simulated log set with planted attacks (Sprint 2) |
 | `sample_logs/` | Simulated logs (includes a few bad lines on purpose) |
-| `tests/` | 14 unit tests (TC-I01 to TC-I14) |
+| `tests/` | 19 unit tests (TC-I01 to TC-I14, TC-I16 to TC-I20) |
 
 ## Log sources
 | Source | File | Format |
@@ -35,6 +36,24 @@ python -m ingestion.ingest --show --since 2026-10-14T14:00:00Z
 python -m ingestion.ingest --export log_entries.json      # JSON for other modules
 python -m unittest discover -s ingestion/tests -t . -v    # run the tests
 ```
+
+## Bigger test data (Sprint 2)
+```
+python -m ingestion.generate_logs big_logs --lines 2000 --seed 42
+python -m ingestion.ingest big_logs --db big.db
+```
+Writes `auth.txt`, `network.csv`, `system.jsonl` and `app_access.txt` into
+`big_logs/` (about 2,000 normal lines over one day, 1 Nov 2026 UTC). The same
+`--seed` always gives the same files. Three attacks are planted for testing
+detection:
+
+| Attack | Who | When (UTC) |
+|---|---|---|
+| Brute force: 10 failed logins, then success | `rpatel` from 198.51.100.23 | 06:15 to 06:16 |
+| Port scan: 20 ports, mostly blocked | 203.0.113.77 -> 10.0.0.20 | 10:40 to 10:41 |
+| Repeated access: 6 x 403 on `/admin` pages | `kwilson` from 10.0.0.66 | 15:05 to 15:07 |
+
+`big_logs/` and `*.db` are in `.gitignore`, so don't commit them.
 The database is `teamnova.db` in the folder you run from. Use `--db other.db`
 or set `TEAMNOVA_DB` to change it. Running the same file twice does not add
 duplicates.
