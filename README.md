@@ -34,4 +34,13 @@ alerts as false positive or real, which helps improve detection over time.
 ## Status
 Sprint 1 — building each module in parallel on mock data, integrating at the end of the sprint.
 
+## Run the web app
+From the repo root (Python 3.9+, no installs):
+```
+python -m dashboard.server
+```
+Open http://localhost:8000. This loads the sample logs, creates alerts and
+incidents, and serves the dashboard with real data. See `dashboard/README.md`
+for options and the API.
+
 See CONTRIBUTING.md for branch and commit rules.

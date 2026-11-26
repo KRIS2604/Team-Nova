@@ -9,15 +9,18 @@
 <body>
   <header>
     <h1>Team Nova Analyst Dashboard</h1>
-    <p>Security alerts and incidents (mock data)</p>
+    <p>Security alerts and incidents from the Team Nova pipeline</p>
   </header>
 
   <main>
+    <div id="message" class="message" hidden></div>
     <section class="stats" id="stats"></section>
 
     <section class="panel">
       <div class="panel-head">
         <h2>Alerts</h2>
+        <div>
+        <button id="refresh" type="button">Refresh</button>
         <select id="severity-filter">
           <option value="all">All severities</option>
           <option value="critical">Critical</option>
@@ -25,10 +28,11 @@
           <option value="medium">Medium</option>
           <option value="low">Low</option>
         </select>
+        </div>
       </div>
       <table>
         <thead>
-          <tr><th>Time</th><th>Source</th><th>Severity</th><th>Reason</th><th>Review</th></tr>
+          <tr><th>Time</th><th>Source</th><th>Severity</th><th>Reason</th><th>Incident</th><th>Review</th></tr>
         </thead>
         <tbody id="alerts-body"></tbody>
       </table>
@@ -40,7 +44,6 @@
     </section>
   </main>
 
-  <script src="mock-data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
