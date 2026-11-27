@@ -39,7 +39,7 @@ From the repo root (Python 3.9+, no installs):
 ```
 python -m dashboard.server
 ```
-Open http://localhost:8000. This loads the sample logs, creates alerts and
+Open https://team-nova-enri.onrender.com/. This loads the sample logs, creates alerts and
 incidents, and serves the dashboard with real data. See `dashboard/README.md`
 for options and the API.
 
